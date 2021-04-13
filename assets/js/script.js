@@ -57,6 +57,9 @@ var questions = [
 
 var startBtn = document.querySelector(".startBtn");
 var infoBox = document.querySelector(".infoBox");
+var nextQuestion = document.querySelector(".nextQuestion");
+
+nextQuestion.style.display = 'none';
 //show info box
 startBtn.addEventListener("click", function() {
     //close button
@@ -64,27 +67,41 @@ startBtn.addEventListener("click", function() {
     //remove info box
     infoBox.remove(".infoBox")
     //start quiz
-    // showQuestions(0);
+    showQuestions(0);
 });
 
 function showQuestions(index){
     var que_text = document.querySelector(".que_text");
-
-    //creating a new span and div tag for question and option and passing the value using array index
     let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
-    let option_tag = '<div class="option "><span>'+ questions[index].options[0] +'</span></div>'
-                    + '<div class="option "><span>'+ questions[index].options[1] +'</span></div>'
-                    + '<div class="option "><span>'+ questions[index].options[2] +'</span></div>'
-                    + '<div class="option "><span>'+ questions[index].options[3] +'</span></div>';
-    //adding new span tag inside que_tag
     que_text.innerHTML = que_tag; 
+    nextQuestion.style.display = 'block';
+    // //creating a new span and div tag for question and option and passing the value using array index
+   
+    // let option_tag = '<div class="option "><span>'+ questions[index].options[0] +'</span></div>'
+    //                 + '<div class="option "><span>'+ questions[index].options[1] +'</span></div>'
+    //                 + '<div class="option "><span>'+ questions[index].options[2] +'</span></div>'
+    //                 + '<div class="option "><span>'+ questions[index].options[3] +'</span></div>';
+    //adding new span tag inside que_tag
+   
     //adding new div tag inside option_tag
-    optionList.innerHTML = option_tag; 
+    // optionList.innerHTML = option_tag; 
     
-    var option = optionList.querySelectorAll(".option");
+    // var option = optionList.querySelectorAll(".option");
 
-    // set onclick attribute to all available options
-    for(i=0; i < option.length; i++){
-        option[i].setAttribute("onclick", "optionSelected("+i+", "+index+")");
+    // // set onclick attribute to all available options
+    // for(i=0; i < option.length; i++){
+    //     option[i].setAttribute("onclick", "optionSelected("+i+", "+index+")");
+    // }
+}
+
+function nextQuestion(i, index) {
+    //when answer is correct, move to the next question
+    if (i == questions[index].answer) {
+      answerStatus.innerHTML = "Correct!";
+      showQuestions(index + 1);
+    } 
+   //when answer is incorrect 
+    else {
+      answerStatus.innerHTML = "Incorrect!";
     }
 }
