@@ -66,7 +66,7 @@ nextQuestion.style.display = 'none';
 //show info box
 startBtn.addEventListener("click", function() {
     //close button
-    startBtn.remove("button");
+    // startBtn.remove("button");
     //remove info box
     infoBox.remove(".infoBox")
     //start quiz
