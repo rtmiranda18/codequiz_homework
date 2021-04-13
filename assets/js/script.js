@@ -53,11 +53,14 @@ var questions = [
       "for loops",
       "console log"
     ]
-  }]
+  }];
 
 var startBtn = document.querySelector(".startBtn");
 var infoBox = document.querySelector(".infoBox");
 var nextQuestion = document.querySelector(".nextQuestion");
+var answerStatus = document.querySelector(".answerStatus");
+var currentQuestion = 1;
+
 
 nextQuestion.style.display = 'none';
 //show info box
@@ -70,11 +73,13 @@ startBtn.addEventListener("click", function() {
     showQuestions(0);
 });
 
-function showQuestions(index){
+function showQuestions(index) {
+    console.log(index);
     var que_text = document.querySelector(".que_text");
     let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
     que_text.innerHTML = que_tag; 
     nextQuestion.style.display = 'block';
+
     // //creating a new span and div tag for question and option and passing the value using array index
    
     // let option_tag = '<div class="option "><span>'+ questions[index].options[0] +'</span></div>'
@@ -94,14 +99,17 @@ function showQuestions(index){
     // }
 }
 
-function nextQuestion(i, index) {
+function changeQuestion () {
+    // console.log(currentQuestion++);
+    // showQuestions(currentQuestion++);
     //when answer is correct, move to the next question
-    if (i == questions[index].answer) {
+    if (questions[currentQuestion].answer) {
       answerStatus.innerHTML = "Correct!";
-      showQuestions(index + 1);
+      showQuestions(currentQuestion++);
     } 
    //when answer is incorrect 
     else {
       answerStatus.innerHTML = "Incorrect!";
     }
 }
+
