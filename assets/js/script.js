@@ -61,16 +61,19 @@ var questionBox = document.querySelector(".questionBox");
 var answerStatus = document.querySelector(".answerStatus");
 var answerList = document.querySelector(".answerList");
 var currentScore = document.querySelector("#currentScore");
+var finishBox = document.querySelector("#finishBox");
 var currentQuestion = 1;
 var myScore = 0;
 
 //show info box
 startBtn.addEventListener("click", function() {
-    currentScore.innerHTML = myScore;
+    currentScore.innerHTML = "<strong>Current Score:</strong> " + myScore;
+
     //remove info box
     infoBox.remove(".infoBox");
     //start quiz
     questionBox.classList.add("questionArea");
+    currentScore.classList.add("scoreBox");
     showQuestions(0);
 });
 
@@ -80,36 +83,42 @@ function showQuestions(index) {
     que_text.innerHTML = que_tag; 
 
     // //creating a new span and div tag for question and option and passing the value using array index
-   
     var option_tag = '<div class="answer">'+ questions[index].options[0] +'</div>'
                     + '<div class="answer">'+ questions[index].options[1] +'</div>'
                     + '<div class="answer">'+ questions[index].options[2] +'</div>'
                     + '<div class="answer">'+ questions[index].options[3] +'</div>';
-    //adding new span tag inside que_tag
    
     //adding new div tag inside option_tag
     answerList.innerHTML = option_tag; 
     
     var answer = answerList.querySelectorAll(".answer");
 
-    // // set onclick attribute to all available options
+    // set onclick attribute to all available options
     for(i=0; i < answer.length; i++) {
         answer[i].setAttribute("onclick", "changeQuestion(" + i + ", " + index + ")");
     }
 }
 
 function changeQuestion (i, index) {
-    // console.log(currentQuestion++);
-    // showQuestions(currentQuestion++);
-    //when answer is correct, move to the next question
-    if (i == questions[index].answer) {
-      answerStatus.innerHTML = "<span class='correct'>Correct!</span>";
-      currentScore.innerHTML = myScore + 5;
-      myScore += 5;
-    } 
-   //when answer is incorrect 
-    else {
-      answerStatus.innerHTML = "<span class='incorrect'>Incorrect!</span>";
+    if (index < 4) {
+        //when answer is correct, move to the next question
+        if (i == questions[index].answer) {
+            answerStatus.innerHTML = "<span class='correct'>Correct!</span>";
+            currentScore.innerHTML = myScore + 5;
+            myScore += 5;
+        } 
+        //when answer is incorrect 
+        else {
+            answerStatus.innerHTML = "<span class='incorrect'>Incorrect!</span>";
+        }
     }
+    else {
+        finishBox.style.display = "block";
+        finishBox.appendChild(document.createTextNode("You're Final Score is: " + myScore + "."));
+        questionBox.remove();
+        currentScore.remove();
+    }
+
+    
     showQuestions(currentQuestion++);
 }
