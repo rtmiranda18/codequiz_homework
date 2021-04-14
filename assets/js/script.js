@@ -73,17 +73,16 @@ startBtn.addEventListener("click", function() {
 });
 
 function showQuestions(index) {
-    console.log(index);
     var que_text = document.querySelector(".que_text");
-    let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
+    var que_tag = '<strong>'+ questions[index].numb + ". " + questions[index].question +'</strong>';
     que_text.innerHTML = que_tag; 
 
     // //creating a new span and div tag for question and option and passing the value using array index
    
-    let option_tag = '<div class="answer"><span>'+ questions[index].options[0] +'</span></div>'
-                    + '<div class="answer"><span>'+ questions[index].options[1] +'</span></div>'
-                    + '<div class="answer"><span>'+ questions[index].options[2] +'</span></div>'
-                    + '<div class="answer"><span>'+ questions[index].options[3] +'</span></div>';
+    var option_tag = '<div class="answer">'+ questions[index].options[0] +'</div>'
+                    + '<div class="answer">'+ questions[index].options[1] +'</div>'
+                    + '<div class="answer">'+ questions[index].options[2] +'</div>'
+                    + '<div class="answer">'+ questions[index].options[3] +'</div>';
     //adding new span tag inside que_tag
    
     //adding new div tag inside option_tag
@@ -102,11 +101,11 @@ function changeQuestion (i) {
     // showQuestions(currentQuestion++);
     //when answer is correct, move to the next question
     if (i == questions[currentQuestion].answer) {
-      answerStatus.innerHTML = "Correct!";
+      answerStatus.innerHTML = "<span class='correct'>Correct!</span>";
     } 
    //when answer is incorrect 
     else {
-      answerStatus.innerHTML = "Incorrect!";
+      answerStatus.innerHTML = "<span class='incorrect'>Incorrect!</span>";
     }
     showQuestions(currentQuestion++);
 }
