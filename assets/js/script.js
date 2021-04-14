@@ -12,7 +12,7 @@ var questions = [
   },
     {
     numb: 2,
-    question: "The condition in a n if/else statement is enclosed within _______.",
+    question: "The condition in an if/else statement is enclosed within _______.",
     answer: 2,
     options: [
       "commas",
@@ -59,10 +59,9 @@ var startBtn = document.querySelector(".startBtn");
 var infoBox = document.querySelector(".infoBox");
 var nextQuestion = document.querySelector(".nextQuestion");
 var answerStatus = document.querySelector(".answerStatus");
+var answerList = document.querySelector(".answerList");
 var currentQuestion = 1;
 
-
-nextQuestion.style.display = 'none';
 //show info box
 startBtn.addEventListener("click", function() {
     //close button
@@ -78,38 +77,36 @@ function showQuestions(index) {
     var que_text = document.querySelector(".que_text");
     let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
     que_text.innerHTML = que_tag; 
-    nextQuestion.style.display = 'block';
 
     // //creating a new span and div tag for question and option and passing the value using array index
    
-    // let option_tag = '<div class="option "><span>'+ questions[index].options[0] +'</span></div>'
-    //                 + '<div class="option "><span>'+ questions[index].options[1] +'</span></div>'
-    //                 + '<div class="option "><span>'+ questions[index].options[2] +'</span></div>'
-    //                 + '<div class="option "><span>'+ questions[index].options[3] +'</span></div>';
+    let option_tag = '<div class="answer"><span>'+ questions[index].options[0] +'</span></div>'
+                    + '<div class="answer"><span>'+ questions[index].options[1] +'</span></div>'
+                    + '<div class="answer"><span>'+ questions[index].options[2] +'</span></div>'
+                    + '<div class="answer"><span>'+ questions[index].options[3] +'</span></div>';
     //adding new span tag inside que_tag
    
     //adding new div tag inside option_tag
-    // optionList.innerHTML = option_tag; 
+    answerList.innerHTML = option_tag; 
     
-    // var option = optionList.querySelectorAll(".option");
+    var answer = answerList.querySelectorAll(".answer");
 
     // // set onclick attribute to all available options
-    // for(i=0; i < option.length; i++){
-    //     option[i].setAttribute("onclick", "optionSelected("+i+", "+index+")");
-    // }
+    for(i=0; i < answer.length; i++) {
+        answer[i].setAttribute("onclick", "changeQuestion("+i+")");
+    }
 }
 
-function changeQuestion () {
+function changeQuestion (i) {
     // console.log(currentQuestion++);
     // showQuestions(currentQuestion++);
     //when answer is correct, move to the next question
-    if (questions[currentQuestion].answer) {
+    if (i == questions[currentQuestion].answer) {
       answerStatus.innerHTML = "Correct!";
-      showQuestions(currentQuestion++);
     } 
    //when answer is incorrect 
     else {
       answerStatus.innerHTML = "Incorrect!";
     }
+    showQuestions(currentQuestion++);
 }
-

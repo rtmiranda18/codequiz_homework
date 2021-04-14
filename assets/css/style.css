@@ -34,11 +34,12 @@
     background-color: violet;
 }
 
-.showQuestions {
+.questionBox {
     border: 1px solid #000;
     padding: 20px;
     width: 500px;
     margin: 0 auto;
+    margin-top: 20px;
     text-align: center;
     border-radius: 10px;
     background-color: lightgrey;
