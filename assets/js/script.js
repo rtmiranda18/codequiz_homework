@@ -57,18 +57,20 @@ var questions = [
 
 var startBtn = document.querySelector(".startBtn");
 var infoBox = document.querySelector(".infoBox");
-var nextQuestion = document.querySelector(".nextQuestion");
+var questionBox = document.querySelector(".questionBox");
 var answerStatus = document.querySelector(".answerStatus");
 var answerList = document.querySelector(".answerList");
+var currentScore = document.querySelector("#currentScore");
 var currentQuestion = 1;
+var myScore = 0;
 
 //show info box
 startBtn.addEventListener("click", function() {
-    //close button
-    // startBtn.remove("button");
+    currentScore.innerHTML = myScore;
     //remove info box
-    infoBox.remove(".infoBox")
+    infoBox.remove(".infoBox");
     //start quiz
+    questionBox.classList.add("questionArea");
     showQuestions(0);
 });
 
@@ -92,16 +94,18 @@ function showQuestions(index) {
 
     // // set onclick attribute to all available options
     for(i=0; i < answer.length; i++) {
-        answer[i].setAttribute("onclick", "changeQuestion("+i+")");
+        answer[i].setAttribute("onclick", "changeQuestion(" + i + ", " + index + ")");
     }
 }
 
-function changeQuestion (i) {
+function changeQuestion (i, index) {
     // console.log(currentQuestion++);
     // showQuestions(currentQuestion++);
     //when answer is correct, move to the next question
-    if (i == questions[currentQuestion].answer) {
+    if (i == questions[index].answer) {
       answerStatus.innerHTML = "<span class='correct'>Correct!</span>";
+      currentScore.innerHTML = myScore + 5;
+      myScore += 5;
     } 
    //when answer is incorrect 
     else {

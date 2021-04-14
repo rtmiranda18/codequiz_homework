@@ -31,10 +31,12 @@
     font-weight: bold;
     margin-top: 10px;
     padding: 10px;
-    background-color: violet;
+    background-color: rgb(179, 82, 179);
+    border: 0  solid rgb(179, 82, 179);
+    border-radius: 10px;
 }
 
-.questionBox {
+.questionArea {
     border: 1px solid #000;
     padding: 20px;
     width: 500px;
@@ -46,8 +48,8 @@
 }
 
 .answer {
-    border: 1px solid violet;
-    background-color: violet;
+    border: 1px solid rgb(179, 82, 179);
+    background-color: rgb(179, 82, 179);
     padding: 20px;
     margin: 20px auto 0;
     text-align: center;
