@@ -114,7 +114,8 @@ function changeQuestion (i, index) {
     }
     else {
       if (i == questions[index].answer) {
-        finishBox.appendChild(document.createTextNode("You're Final Score is: " + (myScore + 5) + "."));
+        myScore = myScore + 5;
+        finishBox.appendChild(document.createTextNode("You're Final Score is: " + (myScore) + "."));
       }
       else {
         finishBox.appendChild(document.createTextNode("You're Final Score is: " + (myScore) + "."));
@@ -129,5 +130,8 @@ function changeQuestion (i, index) {
 function submitInitial() {
   var initialName = document.getElementById("initialName").value;
   console.log(initialName);
+  localStorage.setItem("initial_name", "<div class='finalScore'><h1 class='name'>" + initialName + "</h1><h2 class='score'>" + myScore + "</h2></div>");
+  document.getElementById("displayName").innerHTML = localStorage.getItem("initial_name");
+  finishBox.remove();
   return false; 
 }
