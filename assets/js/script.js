@@ -113,12 +113,21 @@ function changeQuestion (i, index) {
         }
     }
     else {
+      if (i == questions[index].answer) {
+        finishBox.appendChild(document.createTextNode("You're Final Score is: " + (myScore + 5) + "."));
+      }
+      else {
+        finishBox.appendChild(document.createTextNode("You're Final Score is: " + (myScore) + "."));
+      }
         finishBox.style.display = "block";
-        finishBox.appendChild(document.createTextNode("You're Final Score is: " + myScore + "."));
         questionBox.remove();
         currentScore.remove();
-    }
-
-    
+    } 
     showQuestions(currentQuestion++);
+}
+
+function submitInitial() {
+  var initialName = document.getElementById("initialName").value;
+  console.log(initialName);
+  return false; 
 }

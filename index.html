@@ -21,10 +21,10 @@
         <button class="startBtn">Start Quiz</button>
     </div>
     <div id="finishBox">
-        <strong>All Done!</strong><br /><br />
-        <form class="form">
-            Enter Initials: <input type="text" value="" name="user" />
-            <button class="button" type="button">Submit</button>
+        <strong class="message">All Done!</strong><br />
+        <form class="form" onSubmit="return submitInitial()">
+            Enter Initials: <input id="initialName" type="text" name="user" />
+            <button class="submitBtn" type="submit">Submit</button>
         </form>
     </div>
     
