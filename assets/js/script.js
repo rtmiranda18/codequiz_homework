@@ -143,6 +143,7 @@ function countdown(timeLeft) {
     if(timeLeft <= 0){
       clearInterval(quizTimer);
       document.getElementById("countdown").remove();
+      finishBox.appendChild(document.createTextNode("You're Final Score is: " + (myScore) + "."));
       finishBox.style.display = "block";
       questionBox.remove();
       currentScore.remove();
