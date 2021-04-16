@@ -133,3 +133,15 @@
     background-color: lightgrey;
     font-size: 20px;
 }
+
+#countdown {
+    text-align: center;
+    border: 1px solid #000;
+    padding: 20px;
+    width: 150px;
+    margin: 20px auto 0;
+    text-align: center;
+    border-radius: 10px;
+    background-color: lightgrey;
+    font-size: 20px;
+}

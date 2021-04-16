@@ -74,7 +74,7 @@ startBtn.addEventListener("click", function() {
     //start quiz
     questionBox.classList.add("questionArea");
     currentScore.classList.add("scoreBox");
-    countdown(15);
+    countdown(60);
     showQuestions(0);
 });
 
@@ -83,7 +83,7 @@ function showQuestions(index) {
     var que_tag = '<strong>'+ questions[index].numb + ". " + questions[index].question +'</strong>';
     que_text.innerHTML = que_tag; 
 
-    // //creating a new span and div tag for question and option and passing the value using array index
+    // //creating a new div tag for question and option and passing the value using array index
     var option_tag = '<div class="answer">'+ questions[index].options[0] +'</div>'
                     + '<div class="answer">'+ questions[index].options[1] +'</div>'
                     + '<div class="answer">'+ questions[index].options[2] +'</div>'
