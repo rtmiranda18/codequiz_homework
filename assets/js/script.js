@@ -74,6 +74,7 @@ startBtn.addEventListener("click", function() {
     //start quiz
     questionBox.classList.add("questionArea");
     currentScore.classList.add("scoreBox");
+    countdown(15);
     showQuestions(0);
 });
 
@@ -120,6 +121,7 @@ function changeQuestion (i, index) {
       else {
         finishBox.appendChild(document.createTextNode("You're Final Score is: " + (myScore) + "."));
       }
+        document.getElementById("countdown").remove();
         finishBox.style.display = "block";
         questionBox.remove();
         currentScore.remove();
@@ -129,9 +131,24 @@ function changeQuestion (i, index) {
 
 function submitInitial() {
   var initialName = document.getElementById("initialName").value;
-  console.log(initialName);
   localStorage.setItem("initial_name", "<div class='finalScore'><h1 class='name'>" + initialName + "</h1><h2 class='score'>" + myScore + "</h2></div>");
   document.getElementById("displayName").innerHTML = localStorage.getItem("initial_name");
   finishBox.remove();
   return false; 
+}
+
+//start timer
+function countdown(timeLeft) {
+  var quizTimer = setInterval(function(){
+    if(timeLeft <= 0){
+      clearInterval(quizTimer);
+      document.getElementById("countdown").remove();
+      finishBox.style.display = "block";
+      questionBox.remove();
+      currentScore.remove();
+    } else {
+      document.getElementById("countdown").innerHTML = timeLeft;
+    }
+    timeLeft -= 1;
+  }, 1000);
 }
