@@ -148,7 +148,8 @@ function countdown(timeLeft) {
       questionBox.remove();
       currentScore.remove();
     } else {
-      document.getElementById("countdown").innerHTML = timeLeft;
+      document.getElementById("countdown").innerHTML = "<strong>Timer:</strong> " + timeLeft;
+      document.getElementById("countdown").classList.add("countdownTimer");
     }
     timeLeft -= 1;
   }, 1000);

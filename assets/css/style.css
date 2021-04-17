@@ -134,7 +134,7 @@
     font-size: 20px;
 }
 
-#countdown {
+#countdown.countdownTimer {
     text-align: center;
     border: 1px solid #000;
     padding: 20px;
@@ -145,3 +145,4 @@
     background-color: lightgrey;
     font-size: 20px;
 }
+
