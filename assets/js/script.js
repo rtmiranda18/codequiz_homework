@@ -62,6 +62,7 @@ var answerStatus = document.querySelector(".answerStatus");
 var answerList = document.querySelector(".answerList");
 var currentScore = document.querySelector("#currentScore");
 var finishBox = document.querySelector("#finishBox");
+var playerArray = [];
 var currentQuestion = 1;
 var myScore = 0;
 
@@ -75,6 +76,7 @@ startBtn.addEventListener("click", function() {
     questionBox.classList.add("questionArea");
     currentScore.classList.add("scoreBox");
     countdown(60);
+    localStorage.setItem('highScore', '0');
     showQuestions(0);
 });
 
@@ -111,6 +113,8 @@ function changeQuestion (i, index) {
         //when answer is incorrect 
         else {
             answerStatus.innerHTML = "<span class='incorrect'>Incorrect!</span>";
+            // var currentTimer = document.getElementById("timeLeft").textContent;
+            // countdown(parseInt(currentTimer) - 10);
         }
     }
     else {
@@ -130,15 +134,34 @@ function changeQuestion (i, index) {
 }
 
 function submitInitial() {
+  playerArray.push({
+    "playerName": initialName,
+    "score": myScore,
+  }) 
+  
+  for (var i = 0; i < playerArray.length; i++) {
+    var highestScore = 0;
+    var playerName = '';
+    if (playerArray[i].score > highestScore) {
+      highestScore = playerArray[i].score;
+      playerName = playerArray[i].playerName;
+    }
+    localStorage.setItem("highScore", highestScore.toString());
+    localStorage.setItem("playerName", playerName);
+  }
+
+
   var initialName = document.getElementById("initialName").value;
   localStorage.setItem("initial_name", "<div class='finalScore'><h1 class='name'>" + initialName + "</h1><h2 class='score'>" + myScore + "</h2></div>");
   document.getElementById("displayName").innerHTML = localStorage.getItem("initial_name");
+  // document.getElementById("final-score").innerHTML = "<div> <p> High Score" + localStorage.getItem("highScore") + "</p>" + "<p>Player Name" + localStorage.getItem('playerName') + "</p></div>";  
   finishBox.remove();
   return false; 
 }
 
 //start timer
 function countdown(timeLeft) {
+  // console.log(timeLeft);
   var quizTimer = setInterval(function(){
     if(timeLeft <= 0){
       clearInterval(quizTimer);
@@ -148,7 +171,7 @@ function countdown(timeLeft) {
       questionBox.remove();
       currentScore.remove();
     } else {
-      document.getElementById("countdown").innerHTML = "<strong>Timer:</strong> " + timeLeft;
+      document.getElementById("countdown").innerHTML = "<strong>Timer:</strong> <span id='timeLeft'>" + timeLeft + "</span>";
       document.getElementById("countdown").classList.add("countdownTimer");
     }
     timeLeft -= 1;
