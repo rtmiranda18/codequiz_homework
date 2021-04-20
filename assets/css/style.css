@@ -3,6 +3,7 @@
     padding: 0;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
+
 #wrapper {
     display: flex;
     flex-direction: row;
@@ -14,18 +15,22 @@
     width: 400px;
 }
 
+#wrapper #wrapperLeft #listOfExaminers ul {
+    margin: 30px 0 0;
+}
+
 #wrapper #wrapperLeft #listOfExaminers ul li {
-    border: 1px solid #ccc;
-    width: 100%;
+    border-top: 1px solid #ccc;
     padding: 10px;
     list-style: none;
 }
 
-#wrapper #wrapperRight {
-    width: 100%;
+#wrapper #wrapperLeft #listOfExaminers ul li:last-child {
+    border-bottom: 1px solid #ccc;
 }
 
-.wrapperBox {
+#wrapper #wrapperRight {
+    width: 100%;
     padding: 20px;
 }
 
@@ -40,13 +45,33 @@
     border-radius: 10px;
     min-height: 120px;
     width: 400px;
-    padding: 20px;
+    padding: 40px 20px 20px;
     margin: 30px auto;
     background-color: lightgrey;
 }
 
 #step1, #step2 {
     display: none;
+}
+
+#step3 form .inputForm {
+    display: flex;
+    margin: 10px 0 0;
+}
+
+#step3 form .inputForm input {
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    width: 100%; 
+}
+
+#step3 form .inputForm button {
+    border: 1px solid #ccc;
+    padding: 8px 17px;
+    width: 200px; 
+    cursor: pointer;
+    border-left: 0;
+    background-color: rgb(97, 97, 207);
 }
 
 /* .infoBox {
