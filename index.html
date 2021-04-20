@@ -11,12 +11,19 @@
     <div id="wrapper">
         <div id="wrapperLeft" class="wrapperBox">
             <h3>List of High Scores</h3>
+            <div id="listOfExaminers"></div>
         </div>
         <div id="wrapperRight" class="wrapperBox">
             <h3>Code Quiz Challenge</h3>
             <div id="step1" class="stepBox"></div>
             <div id="step2" class="stepBox"></div>
-            <div id="step3" class="stepBox"></div>
+            <div id="step3" class="stepBox">
+                <form onSubmit="return submitInitialName()">
+                    <label>Enter Initials:</label>
+                    <input id="initialName" type="text" value="" />
+                    <button type="submit">Submit Scores</button>
+                </form>
+            </div>
         </div>
     </div>
     <!-- Start here -->

@@ -14,6 +14,13 @@
     width: 400px;
 }
 
+#wrapper #wrapperLeft #listOfExaminers ul li {
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    list-style: none;
+}
+
 #wrapper #wrapperRight {
     width: 100%;
 }
@@ -36,6 +43,10 @@
     padding: 20px;
     margin: 30px auto;
     background-color: lightgrey;
+}
+
+#step1, #step2 {
+    display: none;
 }
 
 /* .infoBox {
