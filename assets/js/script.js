@@ -183,6 +183,11 @@ var step2 = document.getElementById("step2");
 var step3 = document.getElementById("step3");
 
 // Start of Step 1
+function startExam() {
+  step1.style.display = 'none';
+  step2.style.display = 'block';
+  step3.style.display = 'none';
+}
 
 // End of Step 1
 
