@@ -40,14 +40,27 @@
     font-size: 25px;
 }
 
+/*Common styles for Step 1, Step 2 and Step 3*/
+
 .stepBox {
     border: 1px solid #ccc;
     border-radius: 10px;
-    min-height: 150px;
+    min-height: 160px;
     width: 400px;
-    padding: 40px 20px 20px;
+    padding: 30px 20px 20px;
     margin: 30px auto;
     background-color: #f9f9f9;
+}
+
+.stepBox .headerName {
+    font-size: 18px;
+    margin: 0 0 15px;
+}
+
+.stepBox p {
+    line-height: 22px;
+    font-size: 15px;
+    margin: 0 0 15px;
 }
 
 .stepBox .boxBtn {
@@ -64,7 +77,75 @@
 
 #step2, #step3 {
     display: none;
+    overflow: hidden;
 }
+
+/* Styles of Step 2 */
+
+#topHeader{
+    display: flex;
+    flex-direction: row;
+}
+
+#topHeader .topHeader{
+    width: 50%;
+    text-align: center;
+}
+
+#topHeader .topHeader strong{
+    margin: 0 0 5px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+#topHeader .topHeader .topNumber{
+    font-size: 18px;
+}
+
+#bottomContent{
+    text-align: center;
+    margin: 10px 0 0;
+}
+
+#bottomContent #displayQuestion{
+    font-size: 18px;
+    margin: 40px 0 30px;
+}
+
+#bottomContent #displayAnswers ul li{
+    list-style: none;
+    background-color: #ea6bea;
+    border: 1px solid #712771;
+    padding: 15px 10px;
+    margin: 5px 0 15px;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#bottomContent #answerStatus{
+    float: left;
+}
+
+#bottomContent #answerStatus span{
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 5px;
+    position: relative;
+    top: 5px;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+
+#bottomContent #answerStatus span.correct{
+    background-color: #008000;
+}
+#bottomContent #answerStatus span.incorrect{
+    background-color: #f00;
+}
+
+/*Styles of Step 3*/
 
 #step3 form .inputForm {
     display: flex;
@@ -85,146 +166,3 @@
     border-left: 0;
     background-color: rgb(97, 97, 207);
 }
-
-/* .infoBox {
-    border: 1px solid #000;
-    padding: 20px;
-    width: 500px;
-    margin: 0 auto;
-    margin-top: 20px;
-    text-align: center;
-    border-radius: 10px;
-    background-color: lightgrey;
-}
-
-.infoBox .infoTitle {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.infoBox .infoRules {
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-.infoBox .startBtn {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: rgb(179, 82, 179);
-    border: 0  solid rgb(179, 82, 179);
-    border-radius: 10px;
-    outline: none;
-    cursor:pointer;
-}
-
-.questionArea {
-    border: 1px solid #000;
-    padding: 20px;
-    width: 500px;
-    margin: 20px auto 0;
-    text-align: center;
-    border-radius: 10px;
-    background-color: lightgrey;
-}
-
-.answer {
-    border: 1px solid rgb(179, 82, 179);
-    background-color: rgb(179, 82, 179);
-    padding: 20px;
-    margin: 20px auto 0;
-    text-align: center;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.answerStatus {
-    padding: 20px;
-    margin: 20px auto 0;
-}
-
-.answerStatus .correct {
-    border: 1px solid rgb(133, 182, 59);
-    background-color:rgb(133, 182, 59);
-    padding: 20px;
-    margin: 20px auto 0;
-    text-align: center;
-    border-radius: 10px;
-    width: 100%;
-}
-
-.answerStatus .incorrect {
-    border: 1px solid #c45958;
-    background-color: #c45958;
-    padding: 20px;
-    margin: 20px auto 0;
-    text-align: center;
-    border-radius: 10px;
-    width: 100%;
-}
-
-.scoreBox {
-    border: 1px solid #000;
-    padding: 20px;
-    width: 150px;
-    margin: 20px auto 0;
-    text-align: center;
-    border-radius: 10px;
-    background-color: lightgrey;
-}
-
-#finishBox {
-    display: none;
-    border: 1px solid #000;
-    padding: 20px;
-    width: 500px;
-    margin: 20px auto 0;
-    text-align: center;
-    border-radius: 10px;
-    background-color: lightgrey;
-    font-size: 20px;
-}
-
-#finishBox .message {
-    font-size: 25px;
-}
-
-#finishBox .form .submitBtn {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: rgb(179, 82, 179);
-    border: 0  solid rgb(179, 82, 179);
-    border-radius: 10px;
-    outline: none;
-    cursor:pointer;
-}
-
-.finalScore {
-    text-align: center;
-    border: 1px solid #000;
-    padding: 20px;
-    width: 500px;
-    margin: 20px auto 0;
-    text-align: center;
-    border-radius: 10px;
-    background-color: lightgrey;
-    font-size: 20px;
-}
-
-#countdown.countdownTimer {
-    text-align: center;
-    border: 1px solid #000;
-    padding: 20px;
-    width: 150px;
-    margin: 20px auto 0;
-    text-align: center;
-    border-radius: 10px;
-    background-color: lightgrey;
-    font-size: 20px;
-} */
-

@@ -22,7 +22,24 @@
                 </p>
                 <button type="button" class="boxBtn" onClick="startExam()">Start</button>
             </div>
-            <div id="step2" class="stepBox"></div>
+            <div id="step2" class="stepBox">
+                <div id="topHeader">
+                    <div class="topHeader">
+                        <strong>Time:</strong>
+                        <div id="countdownTimer" class="topNumber"></div>
+                    </div>
+                    <div class="topHeader">
+                        <strong>Score:</strong>
+                        <div class="topNumber currentScore"></div>
+                    </div>
+                </div>
+                <div id="bottomContent">
+                    <div id="displayQuestion"></div>
+                    <div id="displayAnswers"></div>
+                    <div id="answerStatus"></div>
+                    <button type="button" class="boxBtn" onClick="resetExam()">Reset</button>
+                </div>
+            </div>
             <div id="step3" class="stepBox">
                 <form onSubmit="return submitInitialName()">
                     <label>Enter Initials:</label>
@@ -30,38 +47,16 @@
                         <input id="initialName" type="text" value="" />
                         <button type="submit">Submit Scores</button>
                     </div>
+                    <div id="displayCurrentScore">
+                        <strong>Your Final Score:</strong>
+                        <div class="currentScore"></div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-    <!-- Start here -->
-    <!-- <div id="currentScore"></div>
-    <div id="countdown"></div>
-    <div class="infoBox">
-        <h2 class="title">Coding Quiz Challenge</h2>
-        <div class="infoTitle"><strong>Instructions:</strong></div>
-        <div class="infoRules">
-            Try to answer the following code-related questions within the time limit. 
-            Keep in mind that incorrect answers will penalize your score time by ten seconds!
-        </div>
-        <button class="startBtn">Start Quiz</button>
-    </div>
-    <div id="displayName"></div>
-    <div id="finishBox">
-        <strong class="message">All Done!</strong><br />
-        <form class="form" onSubmit="return submitInitial()">
-            Enter Initials: <input id="initialName" type="text" name="user" />
-            <button class="submitBtn" type="submit">Submit</button>
-        </form>
-    </div>
     
-    <div class="questionBox">
-        <div class="que_text"></div>
-        <div class="answerList"></div>
-        <div class="answerStatus"></div>
-    </div> -->
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="assets/js/script.js"></script>
 </body>
 </html>
