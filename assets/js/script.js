@@ -163,7 +163,8 @@ function resetExam() {
 var examiners = [];
 var listOfExaminers = document.getElementById("listOfExaminers");
 var initialName = document.getElementById("initialName");
-
+const myExaminers = localStorage.getItem('myExaminers');
+listOfExaminers.innerHTML = myExaminers;
 function submitInitialName() {
   var getInitialName = initialName.value;
   examiners.push({
@@ -171,13 +172,15 @@ function submitInitialName() {
     score: myScore
   })
   console.log(examiners);
-  listOfExaminers.innerHTML = 
+  const examinersList =
         "<ul>" 
             + examiners.sort(function(a, b){return b.score - a.score}).map((examiner, index) => "<li class='examiner_"+index+"'>" + (index == 0 ? "<strong>Top Scorer</strong><br />" : "")+ examiner.name + ": "+ examiner.score +"</li>").join("") +
         "</ul>";
+  listOfExaminers.innerHTML = examinersList;
+  localStorage.setItem('myExaminers', examinersList);       
   initialName.value = '';
   resetExam();
   return false;
 }
-
+console.log(examinersList);
 // End of Step 3
