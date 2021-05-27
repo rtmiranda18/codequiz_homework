@@ -178,7 +178,6 @@ function submitInitialName() {
   initialName.value = '';
   resetExam();
   return false;
-
 }
 
 // End of Step 3
